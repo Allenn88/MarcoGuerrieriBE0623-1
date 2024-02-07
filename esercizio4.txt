@@ -1,0 +1,44 @@
+1--SELECT COUNT()
+  	FROM [esercizio3].[dbo].[Orders]	Numero totale degli ordini
+
+2--SELECT COUNT()
+ 	FROM [esercizio3].[dbo].[Customers]	Numero totale di clienti
+
+3--SELECT COUNT () AS TOTAL
+  	FROM [esercizio3].[dbo].[Customers]
+ 	WHERE City='London';		Numero totale di clienti che abitano a Londra
+
+4-SELECT AVG(Freight) as total
+ 	FROM [esercizio3].[dbo].[Orders]La media aritmetica del costo del trasporto di tutti gli ordini effettuati
+
+5--SELECT AVG(Freight) AS AverageTransportCost
+	FROM [esercizio3].[dbo].[Orders]
+	WHERE CustomerID = 'BOTTM';	La media aritmetica del costo del trasporto dei soli ordini effettuati dal cliente "BOTTM"
+
+6--SELECT AVG(Freight) AS AverageTransportCost
+	FROM [esercizio3].[dbo].[Orders]
+	WHERE CustomerID = 'BOTTM';  Totale delle spese di trasporto effettuate raggruppate per id cliente	
+
+7--SELECT city, COUNT() AS TotalCustomers
+	FROM [esercizio3].[dbo].[Customers]
+	GROUP BY city; Numero totale di clienti raggruppati per città di appartenenza
+
+8--SELECT OrderID, SUM(UnitPrice * Quantity) AS TotalOrderAmount
+	FROM [esercizio3].[dbo].[Order Details]
+	GROUP BY OrderID; Totale di UnitPrice * Quantity raggruppato per ogni ordine
+
+9--SELECT SUM(UnitPrice * Quantity) AS TotalOrderAmount
+	FROM [esercizio3].[dbo].[OrderDetails]
+	WHERE OrderID = 10248;  Totale di UnitPrice * Quantity solo dell'ordine con id=10248
+
+10--SELECT CategoryID, COUNT() AS NumberOfProducts
+	FROM [esercizio3].[dbo].[Products]
+	GROUP BY CategoryID; Numero di prodotti censiti per ogni categoria
+
+11--SELECT ShipCountry, COUNT() AS TotalOrders
+	FROM [esercizio3].[dbo].[Orders]
+	GROUP BY ShipCountry Numero totale di ordini raggruppati per paese di spedizione (ShipCountry)
+
+12--SELECT ShipCountry, AVG(Freight) AS AverageShippingCost
+	FROM [esercizio3].[dbo].[Orders]
+	GROUP BY ShipCountry;  La media del costo del trasporto raggruppati per paese di spedizione (ShipCountry)
